@@ -39,7 +39,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .brand__text { display: grid; line-height: 1.1; }
 .brand__text strong { font-size: 1.05rem; font-weight: 700; }
 .brand__text small { margin-top: 3px; font-size: .62rem; color: #b6c4cd; letter-spacing: .02em; white-space: nowrap; }
-.nav__links { display: flex; gap: 38px; }
+.nav__links { display: flex; gap: 30px; }
 .nav__links a { position: relative; padding: .4em 0; font-size: .92rem; font-weight: 500; text-decoration: none; color: rgba(255, 255, 255, .92); }
 .nav__links a:hover { color: var(--green-2); }
 .nav__links a.is-active { color: #fff; font-weight: 600; }
@@ -206,4 +206,34 @@ h2 { font-size: clamp(1.7rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 80
   .foot-item, .foot-item:nth-child(3) { border-left: 0; padding-left: 0; }
   .form { padding: 20px; }
   .form__actions .btn { flex: 1 1 100%; }
+}
+
+/* Testimonials: centred white cards, swipeable on phones */
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 34px; }
+.quote { display: flex; flex-direction: column; align-items: center; text-align: center; margin: 0; padding: 38px 30px 36px; background: #fafafa; border-radius: 28px; }
+.quote__name { font-size: 1.3rem; line-height: 1.2; font-weight: 700; }
+.quote__role { margin-top: 4px; font-size: .9rem; color: var(--muted); }
+.stars { margin: 14px 0 18px; font-size: 1.6rem; line-height: 1; letter-spacing: .12em; color: #f5a70a; }
+.quote blockquote { margin: 0; }
+.quote blockquote p { font-size: 1.05rem; line-height: 1.7; }
+.quotes__controls { display: none; gap: 10px; justify-content: center; margin-top: 18px; }
+.round { width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--navy-2); background: #fff; color: var(--navy-2); font-size: 1.2rem; }
+.round:hover { background: var(--navy-2); color: #fff; }
+
+/* Floating WhatsApp button */
+.wa-float { position: fixed; right: 20px; bottom: 20px; z-index: 90; display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px 14px 18px; border-radius: 999px; background: linear-gradient(180deg, var(--green-2), var(--green)); color: #fff; font-weight: 700; font-size: .95rem; text-decoration: none; box-shadow: 0 10px 28px -6px rgba(0, 0, 0, .5); }
+.wa-float svg { width: 26px; height: 26px; flex: none; }
+.wa-float:hover { background: var(--green-dark); }
+.wa-float:focus-visible { outline-color: #fff; box-shadow: 0 0 0 3px var(--green-dark), 0 10px 28px -6px rgba(0, 0, 0, .5); }
+.site-footer { padding-bottom: 90px; }
+@media (max-width: 1020px) {
+  .quotes { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding: 4px 0 10px; scrollbar-width: none; }
+  .quotes::-webkit-scrollbar { display: none; }
+  .quote { flex: 0 0 min(82%, 420px); scroll-snap-align: center; }
+  .quotes__controls { display: flex; }
+}
+@media (max-width: 600px) {
+  .wa-float { right: 14px; bottom: 14px; padding: 14px; }
+  .wa-float span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .wa-float svg { width: 30px; height: 30px; }
 }

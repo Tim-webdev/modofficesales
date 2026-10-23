@@ -84,4 +84,13 @@
     };
     if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(ok, fallback); else fallback();
   });
+
+  /* Testimonial arrows (the cards also swipe on touch screens) */
+  var track = $('#quotes');
+  function slide(dir) {
+    var card = $('.quote', track);
+    track.scrollBy({ left: dir * (card.offsetWidth + 14), behavior: 'smooth' });
+  }
+  $('#quotePrev').addEventListener('click', function () { slide(-1); });
+  $('#quoteNext').addEventListener('click', function () { slide(1); });
 })();
